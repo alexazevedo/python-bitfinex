@@ -12,7 +12,6 @@ class BitfinexApi(object):
         return self._get_api('book/' + symbol)
 
     def _get_api(self, action):
-        print('{}/{}/{}'.format(self.host, self.version, action))
         response = requests.get('{}/{}/{}'.format(self.host, self.version, action))
 
         if response.status_code == 400:
