@@ -27,7 +27,9 @@ class BitfinexTradingApi(object):
         return response.json()
 
     def _pack_payload(self, payload):
-        encoded_payload = base64.standard_b64encode(json.dumps(payload))
+        json_payload = json.dumps(payload)
+        encoded_payload = base64.standard_b64encode(json_payload.encode('UTF-8'))
+
         return {
             'X-BFX-APIKEY': self.api_key,
             'X-BFX-SIGNATURE': self._sign_payload(encoded_payload),
