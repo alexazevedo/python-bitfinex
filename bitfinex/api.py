@@ -1,6 +1,6 @@
 import requests
 import urllib
-from exceptions import ApiError
+from .exceptions import ApiError
 
 
 class BitfinexApi(object):
